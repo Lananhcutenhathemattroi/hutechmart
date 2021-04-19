@@ -1,0 +1,16 @@
+﻿@{ ViewBag.Title = "Thống kê doanh số theo tất cả các năm"; }
+
+<div class="card">
+    <div>
+        <button class="btn btn-success float-right" style="margin-top:10px;margin-right:10px" onclick="ExportExcel()">Xuất Excel</button>
+    </div>
+    <div class="card-body">
+        <div class="demo-section k-content wide">
+            <div id="chartByAllYear"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Assets/Js/Report/TargetAllYear.js"></script>
+}

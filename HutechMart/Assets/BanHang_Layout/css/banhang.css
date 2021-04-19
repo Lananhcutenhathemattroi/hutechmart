@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.price {
+    position: absolute;
+    top: 115px;
+    left: 15px;
+    background: #efefef;
+    padding: 0 5px;
+}
+/*BÁN HÀNG*/
+.id__user {
+    font-size: 15px;
+}
+
+.id__user .icn__user {
+    font-weight: 600;
+    padding-right: 3px;
+    color: gray;
+}
+.search__item {
+    border:none;
+    width: 276px;
+}
+.search__item:focus {
+    outline:none
+}
+.search__form {
+    border-bottom: 1px solid #bababa;
+}
+.add__customer{
+    font-size:14px;
+    color:grey;
+}
+/* .text__pay{
+        
+} */
+.tableeee{
+    font-size:14px;
+}
+
+
+.tableeee td {
+    height: 80px;
+    padding: 5px;
+    vertical-align:inherit
+}
+.select__product{
+    background-color: #ffffff;
+    margin-bottom: 5px;
+}
+.select__product:hover{
+    background-color: #f2f2f2;
+}
+.stt{
+    width:10px;
+}
+
+.img{
+    width:60px;
+}
+.masp{
+    width:60px;
+}
+.tensp{
+    width:500px;
+}
+
+.sl {
+    width: 60px;
+    border: none;
+    border-bottom: 1px solid #bababa;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sl:focus {
+    outline:none;
+}
+.dongia{
+    width:100px;
+}
+.thanhtien {
+    width: 100px;
+}
+
+.clear{
+    width:30px;
+    color:tomato
+}
+/* Modal Bán Hàng */
+/* Header modal bán hàng */
+.img__khachhang {
+    border: 1px dashed #999999;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+.icn__camera {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    color: #999999;
+}
+
+.btn__addimg {
+    width: 100px;
+    background-color: #fffafa;
+    border: 1px solid #999999;
+    border-radius: 3px;
+    margin-top: 10px;
+    padding: 5px;
+}
+/* Body modal Khach hang */
+.infor__khachhang {
+    width: 400px;
+    margin: 0 auto;
+}

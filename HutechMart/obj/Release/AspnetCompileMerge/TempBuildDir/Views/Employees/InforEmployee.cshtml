@@ -1,0 +1,214 @@
+﻿@model HutechMart.Models.tbl_NhanVien
+
+@{ ViewBag.Title = "Thông tin cá nhân";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                    <div class="text-center">
+                        <img class="profile-user-img img-fluid img-circle" src="~/Img/NhanVien/@Model.hinhanh">
+                    </div>
+
+                    <h3 class="profile-username text-center">@Model.tennhanvien</h3>
+
+                    <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                            <b>Số điện thoại</b> <a class="float-right">@Model.sodienthoai</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Email</b> <a class="float-right">@Model.email</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Địa chỉ</b> <a class="float-right">@Model.diachi_sonha - @Model.diachi_tenphuong - @Model.diachi_tenquan - @Model.diachi_tentinh</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary btn-block"><b>@Model.tbl_ChucVu.chucvu</b></a>
+                </div>
+            </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header p-2">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Thông tin</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Đổi mật khẩu</a></li>
+                    </ul>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="active tab-pane" id="activity">
+                            <form class="form-horizontal" id="formThongTin">
+                                @Html.HiddenFor(model => model.id)
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.tennhanvien, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.tennhanvien, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.gioitinh, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.gioitinh, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.ngaysinh, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.ngaysinh, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.sochungminh, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.sochungminh, new { @class = "form-control", @type = "number", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.sodienthoai, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.sodienthoai, new { @class = "form-control", @type = "number" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.facebook, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.facebook, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.email, new { @class = "form-control", @type = "email" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-offset-2 col-sm-6">
+                                        <button type="submit" class="btn btn-danger float-right" id="btnUpdate">Cập nhật</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane" id="settings">
+                            <form class="form-horizontal" id="formDoiMatKhau">
+                                @Html.HiddenFor(model => model.id, new { @id = "idnhanvien" })
+                                <div class="form-group row">
+                                    <label for="inputName" class="col-sm-2 control-label">Tài khoản</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="TaiKhoan" name="TaiKhoan" value="@Model.tbl_DangNhap.taikhoan" readonly="readonly">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="inputName" class="col-sm-2 control-label">Mật khẩu cũ</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="MatKhauCu" name="MatKhauCu" placeholder="Nhập mật khẩu hiện tại">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="inputName" class="col-sm-2 control-label">Mật khẩu mới</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="MatKhauMoi" name="MatKhauMoi" placeholder="Nhập mật khẩu mới">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-offset-2 col-sm-6">
+                                        <button class="btn btn-danger float-right" id="btnChangePassword">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $(function () {
+            $("#btnUpdate").click(function (e) {
+                e.preventDefault();
+                var data = $("#formThongTin").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/Employees/InfoUpdate",
+                    data: data,
+                    success: function (result) {
+                        if (result == true) {
+                            Swal.fire(
+                                'Thành công',
+                                '',
+                                'success'
+                            )
+                            setTimeout(function () { location.reload() }, 1500);
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Số điện thoại hoặc Email hoặc Số chứng minh đã tồn tại',
+                            })
+                        }
+                    }
+                })
+            })
+
+            $("#btnChangePassword").click(function (e) {
+                e.preventDefault();
+
+                var matkhaucu = $("#MatKhauCu").val();
+                var matkhaumoi = $("#MatKhauMoi").val();
+
+                if (matkhaucu == matkhaumoi) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Vui lòng nhập mật khẩu mới khác mật khẩu hiện tại',
+                    })
+                }
+                else {
+                    var data = $("#formDoiMatKhau").serialize();
+                    $.ajax({
+                        type: "POST",
+                        url: "/Employees/ChangePassword",
+                        data: data,
+                        success: function (result) {
+                            if (result == true) {
+                                Swal.fire(
+                                    'Thành công',
+                                    '',
+                                    'success'
+                                )
+                                setTimeout(function () { location.reload() }, 1500);
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Mật khẩu hiện tại không chính xác',
+                                })
+                            }
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+}

@@ -1,0 +1,33 @@
+﻿@{ var session = (HutechMart.Models.tbl_NhanVien)Session["NguoiDung"]; }
+<ul class="nav navbar-nav">
+    <li class="dropdown user user-menu">
+        <!-- Menu Toggle Button -->
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <!-- The user image in the navbar-->
+            <img src="~/Img/NhanVien/@session.hinhanh" class="user-image">
+            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+            <span class="hidden-xs">@session.tennhanvien</span>
+        </a>
+        <ul class="dropdown-menu">
+            <!-- The user image in the menu -->
+            <li class="user-header">
+                <img src="~/Img/NhanVien/@session.hinhanh" class="img-circle">
+                <p>
+                    <small>@session.tbl_ChucVu.chucvu</small>
+                    @session.tennhanvien
+                </p>
+            </li>
+            <li class="user-footer">
+                <div class="pull-left">
+                    <a href="@Url.Action("ThongTin", "NhanVien", new { id = session.id })" class="btn btn-default btn-flat">Thông tin</a>
+                </div>
+                <div class="pull-right">
+                    <a href="@Url.Action("Logout","Login")" onclick="return confirm('Bạn đang tiến hành đăng xuất khỏi tài khoản');">
+                        <i class="fa fa-sign-out"></i> <span>Đăng xuất</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+

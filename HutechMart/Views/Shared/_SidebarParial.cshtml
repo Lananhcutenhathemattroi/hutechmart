@@ -1,0 +1,196 @@
+﻿@{ var session = (HutechMart.Models.tbl_NhanVien)Session["NguoiDung"]; }
+<div class="sidebar">
+    <div class="user-panel mt-3 pb-2 mb-3 d-flex">
+        <div class="image">
+            <img src="~/Img/NhanVien/@session.hinhanh" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+            <a href="/Employees/InforEmployee/@session.id" class="d-block">@session.tennhanvien </a>
+        </div>
+    </div>
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-header">
+                <h4 class="">NHÂN VIÊN</h4>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fa fa-shopping-cart"></i> <span>Bán Hàng</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-chart-line"></i>
+                    <p>
+                        Thống kê
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item menu-is-opening">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-bar nav-icon"></i>
+                            <p>
+                                Doanh số
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="/Report/ReportTargetDay" class="nav-link">
+                                    <i class="fas fa-dollar-sign nav-icon"></i>
+                                    <p>Theo ngày</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Report/ReportTargetMonth" class="nav-link">
+                                    <i class="fas fa-dollar-sign nav-icon"></i>
+                                    <p>Theo tháng</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Report/ReportTargetYear" class="nav-link">
+                                    <i class="fas fa-dollar-sign nav-icon"></i>
+                                    <p>Theo năm</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Report/ReportTargetAllYear" class="nav-link">
+                                    <i class="fas fa-dollar-sign nav-icon"></i>
+                                    <p>Tất cả các năm</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item menu-is-opening">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-area nav-icon"></i>
+                            <p>
+                                Hàng hóa
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="/Report/ReportProductsBestSaleMonth" class="nav-link">
+                                    <i class="fas fa-dolly nav-icon"></i>
+                                    <p>Bán chạy theo tháng</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Report/ReportProductsBadSaleMonth" class="nav-link">
+                                    <i class="fas fa-dolly nav-icon"></i>
+                                    <p>Bán chậm theo tháng</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item menu-is-opening">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-pie nav-icon"></i>
+                            <p>
+                                Khách hàng
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="/Report/ReportTargetCustomerByMonth" class="nav-link">
+                                    <i class="fas fa-dollar-sign nav-icon"></i>
+                                    <p>Mua nhiều nhất tháng</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Report/ReportTargetCustomerByYear" class="nav-link">
+                                    <i class="fas fa-dollar-sign nav-icon"></i>
+                                    <p>Mua nhiều nhất năm</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item menu-is-opening">
+                        <a href="#" class="nav-link">
+                            <i class="far fa-chart-bar nav-icon"></i>
+                            <p>
+                                Nhà cung cấp
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="/Report/ReportTargetSupplyByMonth" class="nav-link">
+                                    <i class="fas fa-cart-plus nav-icon"></i>
+                                    <p>Nhập nhiều nhất tháng</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="/Report/ReportTargetSupplyByYear" class="nav-link">
+                                    <i class="fas fa-cart-plus nav-icon"></i>
+                                    <p>Nhập nhiều nhất năm</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+</li>
+        </ul>
+        </li>
+        <li class="nav-item">
+            <a href="@Url.Action("Index","Bills")" class="nav-link">
+                <i class="nav-icon fas fa-money-check-alt"></i>
+                <span>Hóa Đơn</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="@Url.Action("Index","Customer")" class="nav-link">
+                <i class="nav-icon fa fa-users"></i> <span>Khách Hàng</span>
+            </a>
+        </li>
+        @if (session.tbl_DangNhap.loaitaikhoan == true)
+        {
+<li class="nav-header">
+
+    <h4>QUẢN LÝ</h4>
+</li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Index","Employees")" class="nav-link">
+                        <i class="nav-icon fa fa-user"></i> <span>Nhân viên</span>
+                    </a>
+                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","Supply")" class="nav-link">
+                                        <i class="nav-icon fas fa-dolly-flatbed"></i> <span>Nhà cung cấp</span>
+                                    </a>
+                                </li>
+                                                <li class="nav-item">
+                                                    <a href="@Url.Action("Index","Shiping")" class="nav-link">
+                                                        <i class="nav-icon fas fa-ambulance"></i> <span>Đối tác giao hàng</span>
+                                                    </a>
+                                                </li>
+                                                                <li class="nav-item">
+                                                                    <a href="@Url.Action("Index","Product")" class="nav-link">
+                                                                        <i class="nav-icon fa fa-shopping-basket"></i><span>Sản Phẩm</span>
+                                                                    </a>
+                                                                </li>
+                                                                                <li class="nav-item">
+                                                                                    <a href="#" class="nav-link">
+                                                                                        <i class="nav-icon fas fa-cart-plus"></i> <span>Nhập hàng</span>
+                                                                                    </a>
+                                                                                </li>}
+        <li class="nav-header">
+            <h4 class="">CÁ NHÂN</h4>
+        </li>
+        <li class="nav-item">
+            <a href="@Url.Action("InforEmployee","Employees", new { id = session.id})" class="nav-link">
+                <i class="nav-icon fas fa-user-edit"></i> <span>Hồ Sơ Cá Nhân</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="@Url.Action("Logout","Login")" onclick="return confirm('Bạn đang tiến hành đăng xuất khỏi tài khoản');" class="nav-link">
+                <i class="nav-icon fa fa-sign-out-alt"></i> <span>Đăng xuất</span>
+            </a>
+        </li>
+        </ul>
+    </nav>
+</div>

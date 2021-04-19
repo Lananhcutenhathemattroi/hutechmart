@@ -1,0 +1,31 @@
+﻿
+@{ ViewBag.Title = "Thống kê khách hàng mua nhiều nhất năm"; }
+
+<div class="card">
+    <div class="card-header p-2">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="number" min="0" id="year" class="form-control" placeholder="Năm">
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-primary" id="btnSearch" onclick="GetParam()">Tìm kiếm</button>
+            </div>
+            <div>
+                <button class="btn btn-success" onclick="ExportExcel()">Xuất Excel</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div id="example">
+            <div class="demo-section k-content wide">
+                <div id="chartTarget"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Assets/Js/Report/TargetCustomerYear.js"></script>
+}

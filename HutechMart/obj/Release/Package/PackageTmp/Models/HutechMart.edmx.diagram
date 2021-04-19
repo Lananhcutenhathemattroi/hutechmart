@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7d824f8537d8498b8f57e0f1409d4660" Name="Diagram1">
+        <EntityTypeShape EntityType="HutechMartModel.tbl_ChucVu" Width="1.5" PointX="7.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_CuaHang" Width="1.5" PointX="7.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_DangNhap" Width="1.5" PointX="12.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_DoiTacGiaoHang" Width="1.5" PointX="3.75" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_DonViTinh" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_HoaDon" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_HoaDon_SanPham" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_KhachHang" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_KhoHang" Width="1.5" PointX="2.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_KhuyenMai" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_NhaCungCap" Width="1.5" PointX="3.75" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_NhanVien" Width="1.5" PointX="10" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_PhanLoai_GiaoHang" Width="1.5" PointX="1.5" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_PhanLoai_KhachHang" Width="1.5" PointX="1.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_PhanLoai_NhaCungCap" Width="1.5" PointX="1.5" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_PhanLoai_SanPham" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_PhieuNhap" Width="1.5" PointX="6" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_PhieuNhap_SanPham" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_Phuong" Width="1.5" PointX="15.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_PhuongThucThanhToan" Width="1.5" PointX="0.75" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_Quan" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_SanPham" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_ThongKe" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_ThongKe_SanPham" Width="1.5" PointX="8.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_Tinh" Width="1.5" PointX="10.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_VAT" Width="1.5" PointX="4.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_Voucher" Width="1.5" PointX="10.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HutechMartModel.tbl_XuatXu" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_NhanVien_tbl_ChucVu" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_NhanVien_tbl_CuaHang" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_DangNhap_tbl_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_DoiTacGiaoHang_tbl_PhanLoai_GiaoHang" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_PhieuNhap_tbl_DoiTacGiaoHang" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_SanPham_tbl_DonViTinh" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_HoaDon_SanPham_tbl_HoaDon" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_HoaDon_tbl_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_HoaDon_tbl_PhuongThucThanhToan" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_HoaDon_SanPham_tbl_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_KhachHang_tbl_PhanLoai_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_SanPham_tbl_KhuyenMai" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_NhaCungCap_tbl_PhanLoai_NhaCungCap" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_PhieuNhap_tbl_NhaCungCap" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_SanPham_tbl_PhanLoai_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_PhieuNhap_SanPham_tbl_PhieuNhap" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_PhieuNhap_SanPham_tbl_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_Phuong_tbl_Quan" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_Quan_tbl_Tinh" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_SanPham_tbl_XuatXu" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_ThongKe_SanPham_tbl_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="HutechMartModel.FK_tbl_ThongKe_SanPham_tbl_ThongKe" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

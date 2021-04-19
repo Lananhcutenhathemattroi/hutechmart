@@ -1,0 +1,216 @@
+﻿@model PagedList.IPagedList<HutechMart.Models.tbl_NhanVien>
+@using PagedList.Mvc;
+
+@{ ViewBag.Title = "Nhân viên"; }
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card card-outline">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <span>Chức vụ</span>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-sm" id="modal-create-group" data-toggle="modal" data-target="#createGroup" onclick="ModalCreateGroup()">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="modal fade" id="createGroup" aria-hidden="true">
+                            <div class="modal-dialog ui-front">
+                                <div class="modal-content">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-sm" type="button" data-toggle="collapse" data-target="#collaspePhanLoai" aria-expanded="false" aria-controls="collaspePhanLoai">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="collapse" id="collaspePhanLoai">
+                    <div class="input-group input-group-sm" style="margin-top:3px">
+                        <input type="text" class="form-control float-right" id="chucVu" placeholder="Nhập vào đây">
+                        <div class="input-group-append">
+                            <button class="btn btn-default"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-outline">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-11">
+                        <span>Giới tính</span>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-sm" type="button" data-toggle="collapse" data-target="#collaspeGioiTinh" aria-expanded="false" aria-controls="collaspeGioiTinh">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group collapse" id="collaspeGioiTinh">
+                    <br />
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="nam" name="gioitinh">
+                        <label for="nam" style="margin-right:15px">Nam</label>
+                        <input type="radio" id="nu" name="gioitinh">
+                        <label for="nu" style="margin-right:15px">Nữ</label>
+                        <input type="radio" id="khac" name="gioitinh">
+                        <label for="khac" style="margin-right:15px">Khác</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-outline">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-11">
+                        <span>Trạng thái</span>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-sm" type="button" data-toggle="collapse" data-target="#collaspeTrangThai" aria-expanded="false" aria-controls="collaspeTrangThai">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group collapse" id="collaspeTrangThai">
+                    <br />
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="dangHoatDong" name="trangthai">
+                        <label for="trangthai">Đang hoạt động</label>
+                        <br />
+                        <input type="radio" id="tamDung" name="trangthai">
+                        <label for="tamDung">Ngưng hoạt động</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <h3 class="card-title">Danh sách nhân viên</h3>
+
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" class="form-control float-right" id="searching" placeholder="Nhập vào đây">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered" id="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Mã nhân viên</th>
+                                <th scope="col">Họ tên</th>
+                                <th scope="col">Giới tính</th>
+                                <th scope="col">Số điện thoại</th>
+                                <th class="text-center">
+                                    <button class="btn btn-success" id="modal-create" data-toggle="modal" data-target="#create" onclick="ModalCreate()"> Thêm mới </button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_employees">
+                            @foreach (var item in Model)
+                            {
+                                <tr id="row_@item.id">
+                                    <td>@item.manhanvien</td>
+                                    <td>@item.tennhanvien</td>
+                                    <td>@item.gioitinh</td>
+                                    <td>@item.sodienthoai</td>
+                                    <td style="display:none">@item.tbl_ChucVu.chucvu</td>
+                                    <td style="display:none">@item.sochungminh</td>
+                                    <td style="display:none">@item.diachi_sonha - @item.diachi_tenphuong - @item.diachi_tenquan - @item.diachi_tentinh</td>
+                                    <td style="display:none">@item.ngaysinh</td>
+                                    <td style="display:none">@item.email</td>
+                                    <td style="display:none">@item.facebook</td>
+                                    <td style="display:none">@item.tinhtrang</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-default" data-toggle="modal" data-target="#viewdetails" onclick="loadChiTietNV(@item.id)"><i class="fa fa-eye"></i></button>
+                                        @*<div class="modal fade" id="viewdetails" aria-hidden="true">
+                                                <div class="modal-dialog modal-xl" style=" width: 1000px;" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body pb-0 row text-nowrap">
+                                                           
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="modal-footer w-100">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>*@
+                                        <div class="modal fade" id="viewdetails" aria-hidden="true">
+                                            <div class="modal-dialog modal-xl" style=" width: 1000px;" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Thông tin nhân viên</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body pb-0 row text-nowrap">
+                                                        <div id="chiTiet" class="w-100"></div>
+                                                        <div class="modal-footer w-100">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button id="modal-update" class="btn btn-warning" data-toggle="modal" data-target="#update-@item.id" data-id="@item.id" onclick="ModalUpdate(this)">Cập nhật</button>
+                                        <div class="modal fade" id="update-@item.id" aria-hidden="true">
+                                            <div class="modal-dialog modal-xl ui-front">
+                                                <div class="modal-content">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-danger" id="btnDelete" onclick="Delete(this)" data-id="@item.id">Xóa</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer clearfix">
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                    <ul class="pagination pagination-sm m-0 float-right">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="create" aria-hidden="true">
+    <div class="modal-dialog modal-xl ui-front">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="~/Assets/Js/Employees/EmployeesIndex.js"></script>
+}

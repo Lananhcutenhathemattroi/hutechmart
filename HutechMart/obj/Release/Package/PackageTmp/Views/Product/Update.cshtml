@@ -1,0 +1,116 @@
+﻿@model HutechMart.Models.tbl_SanPham
+@{
+    Layout = null;
+    var session = (HutechMart.Models.tbl_NhanVien)Session["NguoiDung"];
+}
+
+<div style="visibility:hidden" class="overlay dark d-flex justify-content-center align-items-center" id="updateloading">
+    <i class="fas fa-2x fa-sync fa-spin"></i>
+</div>
+
+<div class="modal-header">
+    <h5 class="modal-title">Thay đổi thông tin</h5>
+    <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body form-horizontal">
+    <form id="formUpdate">
+        <input type="hidden" id="id" name="id" value="@Model.id" />
+        <input type="hidden" id="id_nguoicapnhat" name="id_nguoicapnhat" value="@session.id" />
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.masanpham, htmlAttributes: new { @class = "control-form-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.masanpham, new { @class = "form-control", @placeholder = "Mã mặc định", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.hinhanh, htmlAttributes: new { @class = "col-sm-4 col-form-label" })
+                        <div class="col-sm-6 custom-file">
+                            <input type="file" name="hinhAnh" id="hinhAnh" class="custom-file-input" />
+                            <label class="custom-file-label" for="hinhAnh">Chọn tệp</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.tensanpham, htmlAttributes: new { @class = "control-form-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.tensanpham, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.soluong, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.soluong, new { @class = "form-control", @type = "number" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.giaban, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.giaban, new { @class = "form-control", @type = "number" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.gianhap, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.gianhap, new { @class = "form-control", @type = "email" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.id_cuahang, htmlAttributes: new { @class = "col-sm-4 col-form-label" })
+                        <div class="col-sm-6">
+                            <input placeholder="@session.tbl_CuaHang.tencuahang" class="form-control" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.id_phanloai, htmlAttributes: new { @class = "control-form-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.DropDownList("id_phanloai", null, "--Chọn phân loại--", new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.id_xuatxu, htmlAttributes: new { @class = "control-form-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.DropDownList("id_xuatxu", null, "--Chọn xuất xứ--", new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.id_donvitinh, htmlAttributes: new { @class = "control-form-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.DropDownList("id_donvitinh", null, "--Chọn đơn vị tính--", new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.id_khuyenmai, htmlAttributes: new { @class = "control-form-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.DropDownList("id_khuyenmai", null, "--Chọn khuyến mãi--", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.ghichu, htmlAttributes: new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            @Html.TextAreaFor(model => model.ghichu, new { @class = "form-control", @rows = "3" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button id="btnCreate" class="btn bg-olive" onclick="Update()">Thay đổi</button>
+</div>
+
+
+
+

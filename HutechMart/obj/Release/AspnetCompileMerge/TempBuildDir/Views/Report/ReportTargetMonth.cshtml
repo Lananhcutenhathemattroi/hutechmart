@@ -1,0 +1,47 @@
+﻿@{ ViewBag.Title = "Thống kê doanh số theo tháng"; }
+
+<div class="card">
+    <div class="card-header p-2">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Thời gian</label>
+                    <input type="month" id="time" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-primary" style="margin-bottom:4px; margin-top:32px" onclick="GetParam()">Tìm kiếm</button>
+            </div>
+            <div>
+                <button class="btn btn-success" style="margin-bottom:4px; margin-top:32px" onclick="ExportExcel()">Xuất Excel</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div id="example">
+            <div class="configurator">
+                <div class="box-col">
+                    <ul class="options">
+                        <li>
+                            <input id="baseUnitDays" name="baseUnit"
+                                   type="radio" value="days" checked="checked" autocomplete="off" />
+                            <label for="baseUnitDays">Ngày</label>
+                        </li>
+                        <li>
+                            <input id="baseUnitYears" name="baseUnit"
+                                   type="radio" value="weeks" autocomplete="off" />
+                            <label for="baseUnitYears">Tuần</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="demo-section k-content wide">
+                <div id="chartByMonth"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Assets/Js/Report/TargetMonth.js"></script>
+}

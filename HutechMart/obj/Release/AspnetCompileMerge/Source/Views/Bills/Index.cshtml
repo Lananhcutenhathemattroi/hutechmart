@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "Hóa Đơn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://pagination.js.org/dist/2.1.5/pagination.css" />
+<div class="row">
+    <div class="col-md-2">
+        <div class="card card-outline">
+            <div class="card-body" style="padding:14px">
+                <div class="row">
+                    <div class="col-md-9">
+                        <span>Thời gian</span>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-sm" type="button" data-toggle="collapse" data-target="#collaspeTrangThai" aria-expanded="false" aria-controls="collaspeTrangThai">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group collapse" id="collaspeTrangThai">
+                    <br />
+                    <div class="custom-radio">
+                        <input type="date" id="dateStart" class="form-control" style="margin-bottom:10px" min="1999-01-01">
+                        <input type="date" id="dateEnd" class="form-control"  style="margin-bottom:10px"  min="1999-01-01">
+                        <input type="submit" class="btn-primary btn" value="Tìm" id="btnSearchRange" />
+                        @*<input type="date" value="1900-01-01" min="1900-01-01" id="dateMin">
+                            <br />
+                            <input type="date" value="1900-01-01" min="1900-01-01" id="dateMax">
+                            <button type="submit" id="SearchDate" value="Tìm"></button>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Danh sách hóa đơn</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" class="form-control float-right" id="searching" placeholder="Nhập vào đây" value="">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default" id="btnSearch"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped text-">
+                    <thead>
+                        <tr>
+                            <th scope="col">Mã hóa đơn</th>
+                            <th scope="col">Thời gian</th>
+                            <th scope="col">Tên khách hàng</th>
+                            <th scope="col">Tổng tiền</th>
+                            <th scope="col">Khuyến mãi</th>
+                            <th scope="col">Khách cần trả</th>
+                            <th class="text-center">
+                                
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_employees" class="text-nowrap">
+                        <tr>
+                            <td colspan="7">
+                                <div class="collapse">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- /.card-body -->
+                <div class="card-footer clearfix">
+                    <div class="paginationjs">
+                        <div class="paginationjs-pages">
+                            <ul id="pagination"></ul>
+                        </div>
+                    </div>
+                    @*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                        <ul class="pagination pagination-sm m-0 float-right">
+                                Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                            </ul>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updateBills">
+    <div class="modal-dialog modal-xl" style=" width: 800px;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Chi tiết hóa đơn</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div id="ModalNe"></div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <div class="row btn__footer">
+                    <button type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="modal fade" id="create" aria-hidden="true">
+        <div class="modal-dialog modal-xl ui-front">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>*@
+
+@section scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="https://pagination.js.org/dist/2.1.5/pagination.min.js"></script>
+    <script src="~/Assets/Js/Bills/BillsIndex.js"></script>
+}
